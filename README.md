@@ -69,7 +69,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 ```bash
 streamlit run app.py
 ```
-*The app will automatically pop up in your default web browser at `http://localhost:8501/`.*
+*The app will automatically pop up in your default web browser at `http://localhost:8506/`.*
 
 ---
 
