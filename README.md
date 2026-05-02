@@ -80,6 +80,11 @@ streamlit run app.py
 
 ---
 
+## 🌍 Live Demo
+https://sk-careerconnect-ai.streamlit.app
+Uses Google Gemini API for AI responses
+
+
 ## 👨‍💻 Developer
 **Subash kumar S**  
 [GitHub Profile](https://github.com/SubashKumarS)
