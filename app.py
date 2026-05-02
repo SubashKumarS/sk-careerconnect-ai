@@ -250,6 +250,7 @@ def generate_pdf_report_bytes(skills, goals):
 # Top Header Section
 st.markdown("<div class='main-header'>🚀 SK CareerConnect AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-text'>Your Personal AI-Powered Career Assistant</div>", unsafe_allow_html=True)
+st.markdown("### 🤖 Dual AI Assistant: Career + Election Guidance")
 
 mode = st.radio(
     "🔀 Select Mode",
@@ -329,9 +330,17 @@ with tab1:
 with tab2:
     st.markdown("<div class='section-header'>Chat with your Career AI Guide</div>", unsafe_allow_html=True)
     
+    if mode == "🗳️ Election Education":
+        st.info("💡 Try: How to vote in India for the first time?")
+    else:
+        st.info("💡 Try: I like AI, what career should I choose?")
+    
     # Initialize chat history in Streamlit's session_state
     if "messages" not in st.session_state:
-        welcome_msg = "Hello! I am your AI career assistant. How can I help you today? (e.g., Interview tips, resume review, skill advice)" if language == "English" else "வணக்கம்! நான் உங்கள் AI தொழில் வழிகாட்டி. இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்? (எ.கா. நேர்காணல் குறிப்புகள், ரெஸ்யூம் ஆலோசனை)"
+        if mode == "🎯 Career Guidance":
+            welcome_msg = "Hello! I am your AI career assistant. How can I help you today? (e.g., Interview tips, resume review, skill advice)" if language == "English" else "வணக்கம்! நான் உங்கள் AI தொழில் வழிகாட்டி. இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்? (எ.கா. நேர்காணல் குறிப்புகள், ரெஸ்யூம் ஆலோசனை)"
+        else:
+            welcome_msg = "Hello! I am your AI election assistant. Ask me anything about voting..." if language == "English" else "வணக்கம்! நான் உங்கள் AI தேர்தல் உதவியாளர். இந்தியாவில் வாக்களிப்பது குறித்து எதையும் கேளுங்கள்..."
         st.session_state.messages = [{"role": "assistant", "content": welcome_msg}]
 
     # Display previous chat messages
