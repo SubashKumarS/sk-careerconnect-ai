@@ -1,83 +1,98 @@
-# 🚀 SK CareerConnect AI
-**Your Personal AI-Powered Career Assistant**
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue.svg)](Insert_Live_Link_Here)
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)]()
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)]()
-
-Welcome to **SK CareerConnect AI**, an intelligent, multi-lingual web application designed to guide your career path from confusion to execution. Combining Google Gemini's highly capable generative infrastructure with an incredibly intuitive dual-language setup (English/Tamil), CareerConnect acts as an all-in-one AI career counselor!
-
----
-
-## ✨ Features
-
-- 🗺️ **Personalized Career Roadmap**
-  Provide your skills, interests, and goals, and instantly receive a chronological, step-by-step master plan of execution.
+<div align="center">
+  <h1>🚀 SK CareerConnect AI</h1>
+  <h3>Your Intelligent, Multi-Lingual Career Assistant</h3>
   
-- 💬 **Voice-Interactive AI Chat**
-  Built tightly alongside **Google Speech-to-Text**, simply speak your questions directly to the AI assistant perfectly natively!
-  
-- 🧭 **Path Discovery Engine**
-  Don't know what career fits you? Describe yourself plainly and the AI will analyze your strengths to suggest 3 to 5 highly matching career choices.
-  
-- ⚖️ **Skill Gap Analyzer**
-  Compare your current baseline explicitly against the market requirements for a target career and isolate the exact tools/skills you are missing.
-  
-- 🌐 **Native Bilingual Interface & Detection**
-  Leveraging **langdetect**, input text natively in Tamil (அல்லது ஆங்கிலம்!), and the AI dynamically replies exactly in the language you need.
-  
-- 📄 **1-Click PDF Report Export**
-  Compile the strategy—Gap Analysis, Roadmap, and Job suggestions—into a professional, downloadable PDF file via **FPDF**.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend/UI:** [Streamlit](https://streamlit.io/)
-- **AI Core Processor:** [Google Gemini API](https://aistudio.google.com/) (`gemini-2.5-flash` via OpenAI compatibility)
-- **Speech Processing:** `audio-recorder-streamlit` + `SpeechRecognition` (Google STT)
-- **Language Detection:** `langdetect`
-- **Environment Settings:** `python-dotenv`
-- **PDF Infrastructure:** `fpdf2`
-
----
-
-## 🚀 How to Run Locally
-
-Follow these instructions to successfully boot the application on your own machine.
-
-**1. Clone the repository**
-```bash
-git clone https://github.com/your-username/SK-CareerConnect-AI.git
-cd SK-CareerConnect-AI
-```
-
-**2. Install dependencies**
-Use `pip` to automatically install the exact requirements needed:
-```bash
-pip install -r requirements.txt
-```
-
-**3. Configure your Environment Variables**
-Create a `.env` file in the root directory and securely paste your Gemini API Key:
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-```
-*(Alternatively, you can completely skip this step and paste your API key directly into the application's sidebar once it launches!)*
-
-**4. Boot the Application**
-```bash
-streamlit run app.py
-```
-*The app will automatically pop up in your default web browser at `http://localhost:8506/`.*
+  <p>
+    <a href="Insert_Live_Link_Here"><img src="https://img.shields.io/badge/Live_Demo-Click_Here-blue?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit" />
+    <img src="https://img.shields.io/badge/AI-Google_Gemini-8E75B2?style=flat-square&logo=google&logoColor=white" alt="Gemini AI" />
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License" />
+  </p>
+</div>
 
 ---
 
 ## 🌍 Live Demo
-Test out the working application securely inside the browser!  
-👉 **[View Live Demo Here](#)** *(Replace this link with your platform deployment)*
+**[Test the application live!](Insert_Live_Link_Here)**  
+*(Replace this with your deployed Streamlit/Vercel link)*
 
 ---
 
-### 📝 Contributors & License
-Project built and designed by Subash kumar S. Available as open-source.
+## 💡 Why This Project Matters
+Navigating career choices can be overwhelming. **SK CareerConnect AI** bridges the gap between ambition and execution by providing personalized, AI-driven guidance. It removes the language barrier by seamlessly supporting both Tamil and English, ensuring users get actionable career advice, skill gap analysis, and structured roadmaps in their native language.
+
+---
+
+## ✨ Key Features
+- 🗺️ **Personalized Career Roadmap**: Generates a chronological, step-by-step master plan based on your skills and goals.
+- 🎯 **AI Path Suggestions**: Analyzes user strengths and interests to recommend 3–5 highly suitable career choices.
+- ⚖️ **Skill Gap Analyzer**: Explicitly compares your current skills against industry requirements to isolate what you need to learn.
+- 💬 **Voice-Interactive Chat**: Speak your questions naturally using built-in Google Speech-to-Text integration.
+- 🌐 **Native Bilingual Support**: Enter text or speak in Tamil or English. The AI automatically detects the language and replies natively.
+- 📄 **PDF Report Export**: Compile your personalized strategy into a professional, downloadable PDF file in one click.
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend**: [Streamlit](https://streamlit.io/) (Fast, responsive UI)
+- **AI Core**: [Google Gemini API](https://aistudio.google.com/) (`gemini-2.5-flash`)
+- **Speech Processing**: Google Speech-to-Text (`SpeechRecognition`, `audio-recorder-streamlit`)
+- **Language Detection**: `langdetect`
+- **PDF Generation**: `fpdf2`
+- **Environment Management**: `python-dotenv`
+
+---
+
+## ⚙️ How It Works
+1. **Input Profile**: User enters their current skills, interests, and target goals (Text or Voice).
+2. **Language Detection**: The system identifies if the user is communicating in Tamil or English.
+3. **AI Processing**: The Gemini API acts as an expert counselor, structuring paths, identifying missing skills, and building timelines.
+4. **Actionable Output**: The user receives an interactive UI breakdown and can download the finalized strategy as a PDF.
+
+---
+
+## 📸 Screenshots
+*(Add your application screenshots here)*
+> ![Dashboard](https://via.placeholder.com/800x400?text=Dashboard+Screenshot)
+> ![Chat Interface](https://via.placeholder.com/800x400?text=Chat+Interface+Screenshot)
+
+---
+
+## 🚀 Installation & Setup
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/SubashKumarS/sk-careerconnect-ai.git
+cd sk-careerconnect-ai
+```
+
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Set up your Environment Variables**
+Create a `.env` file in the root directory and add your Google Gemini API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+**4. Run the Application**
+```bash
+streamlit run app.py
+```
+*The app will automatically launch in your browser at `http://localhost:8506/`.*
+
+---
+
+## 👨‍💻 Author
+**Subash kumar S**  
+[GitHub Profile](https://github.com/SubashKumarS)
+
+---
+
+## 📜 License
+This project is licensed under the MIT License. Feel free to fork, build upon, and use it for your own projects!
