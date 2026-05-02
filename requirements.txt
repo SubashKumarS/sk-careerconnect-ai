@@ -1,0 +1,8 @@
+streamlit
+openai
+python-dotenv
+langdetect
+legacy-cgi
+audio-recorder-streamlit
+SpeechRecognition
+fpdf2
