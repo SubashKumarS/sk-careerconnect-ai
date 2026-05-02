@@ -5,7 +5,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)]()
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)]()
 
-Welcome to **SK CareerConnect AI**, an intelligent, multi-lingual web application designed to guide your career path from confusion to execution. Combining OpenAI's highly capable generative infrastructure with an incredibly intuitive dual-language setup (English/Tamil), CareerConnect acts as an all-in-one AI career counselor!
+Welcome to **SK CareerConnect AI**, an intelligent, multi-lingual web application designed to guide your career path from confusion to execution. Combining Google Gemini's highly capable generative infrastructure with an incredibly intuitive dual-language setup (English/Tamil), CareerConnect acts as an all-in-one AI career counselor!
 
 ---
 
@@ -24,7 +24,7 @@ Welcome to **SK CareerConnect AI**, an intelligent, multi-lingual web applicatio
   Compare your current baseline explicitly against the market requirements for a target career and isolate the exact tools/skills you are missing.
   
 - 🌐 **Native Bilingual Interface & Detection**
-  Leveraging the **Google Translate API**, input text natively in Tamil (அல்லது ஆங்கிலம்!), and the AI dynamically replies exactly in the language you need.
+  Leveraging **langdetect**, input text natively in Tamil (அல்லது ஆங்கிலம்!), and the AI dynamically replies exactly in the language you need.
   
 - 📄 **1-Click PDF Report Export**
   Compile the strategy—Gap Analysis, Roadmap, and Job suggestions—into a professional, downloadable PDF file via **FPDF**.
@@ -34,9 +34,9 @@ Welcome to **SK CareerConnect AI**, an intelligent, multi-lingual web applicatio
 ## 🛠️ Tech Stack
 
 - **Frontend/UI:** [Streamlit](https://streamlit.io/)
-- **AI Core Processor:** [OpenAI API](https://platform.openai.com/) (`gpt-3.5-turbo`)
+- **AI Core Processor:** [Google Gemini API](https://aistudio.google.com/) (`gemini-2.5-flash` via OpenAI compatibility)
 - **Speech Processing:** `audio-recorder-streamlit` + `SpeechRecognition` (Google STT)
-- **Language Detection:** `googletrans`
+- **Language Detection:** `langdetect`
 - **Environment Settings:** `python-dotenv`
 - **PDF Infrastructure:** `fpdf2`
 
@@ -59,9 +59,9 @@ pip install -r requirements.txt
 ```
 
 **3. Configure your Environment Variables**
-Create a `.env` file in the root directory and securely paste your OpenAI API Key:
+Create a `.env` file in the root directory and securely paste your Gemini API Key:
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 *(Alternatively, you can completely skip this step and paste your API key directly into the application's sidebar once it launches!)*
 
