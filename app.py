@@ -260,15 +260,21 @@ mode = st.radio(
 st.success(f"Current Mode: {mode}")
 
 # Define Main Tabs
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🗺️ Career Planner", "💬 Chat", "🧭 Path Discovery", "⚖️ Skill Gap", "🛣️ Roadmap", "📄 PDF Report"])
+if mode == "🗳️ Election Education":
+    tab2, tab1 = st.tabs(["💬 Chat", "🗺️ Career Planner (Disabled)"])
+else:
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🗺️ Career Planner", "💬 Chat", "🧭 Path Discovery", "⚖️ Skill Gap", "🛣️ Roadmap", "📄 PDF Report"])
 
 # -----------------------------------------------
 # TAB 1: CAREER PLANNER & SKILL GAP ANALYSIS
 # -----------------------------------------------
 with tab1:
-    st.markdown("<div class='section-header'>Design Your Future</div>", unsafe_allow_html=True)
-    st.write("Tell us about yourself and we will craft a complete strategy with Career Suggestions, Skill Analysis, and a chronological Roadmap.")
-    st.markdown("<br>", unsafe_allow_html=True)
+    if mode == "🗳️ Election Education":
+        st.info("🗳️ Election Mode Active – Please use the Chat tab for election queries.")
+    else:
+        st.markdown("<div class='section-header'>Design Your Future</div>", unsafe_allow_html=True)
+        st.write("Tell us about yourself and we will craft a complete strategy with Career Suggestions, Skill Analysis, and a chronological Roadmap.")
+        st.markdown("<br>", unsafe_allow_html=True)
     
     with st.container(border=True):
         st.subheader("👤 Your Profile")
@@ -378,28 +384,28 @@ with tab2:
         
         if mode == "🎯 Career Guidance":
             system_prompt = f"""
-You are an expert career assistant.
+You are a career assistant.
 
-Provide:
+Give:
 - Career suggestions
-- Skill gap analysis
+- Skill gap
 - Roadmap
 - Advice
 
-CRITICAL: Respond in {lang_instruction}
+Respond in {lang_instruction}
 """
         else:
             system_prompt = f"""
-You are an AI assistant that explains the election process in India.
+You are an election education assistant.
 
-Provide:
-1. Eligibility
-2. Documents
-3. Voting steps
-4. Mistakes
-5. Tips
+Explain:
+- Eligibility to vote
+- Required documents
+- Voting steps
+- Mistakes to avoid
+- Tips
 
-CRITICAL: Respond in {lang_instruction}
+Respond in {lang_instruction}
 """
         
         # 3. Stream or Generate Response
