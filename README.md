@@ -82,7 +82,9 @@ streamlit run app.py
 
 ## 🌍 Live Demo
 https://sk-careerconnect-ai.streamlit.app
-Uses Google Gemini API for AI responses
+
+## 🧠 AI Used
+Google Gemini API (Generative AI)
 
 
 ## 👨‍💻 Developer
