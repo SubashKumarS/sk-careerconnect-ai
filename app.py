@@ -251,6 +251,14 @@ def generate_pdf_report_bytes(skills, goals):
 st.markdown("<div class='main-header'>🚀 SK CareerConnect AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-text'>Your Personal AI-Powered Career Assistant</div>", unsafe_allow_html=True)
 
+mode = st.radio(
+    "🔀 Select Mode",
+    ["🎯 Career Guidance", "🗳️ Election Education"],
+    horizontal=True
+)
+
+st.success(f"Current Mode: {mode}")
+
 # Define Main Tabs
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🗺️ Career Planner", "💬 Chat", "🧭 Path Discovery", "⚖️ Skill Gap", "🛣️ Roadmap", "📄 PDF Report"])
 
@@ -315,13 +323,6 @@ with tab1:
 with tab2:
     st.markdown("<div class='section-header'>Chat with your Career AI Guide</div>", unsafe_allow_html=True)
     
-    # Mode Toggle
-    mode = st.radio(
-        "Select Mode",
-        ["🎯 Career Guidance", "🗳️ Election Education"]
-    )
-    st.success(f"Current Mode: {mode}")
-    
     # Initialize chat history in Streamlit's session_state
     if "messages" not in st.session_state:
         welcome_msg = "Hello! I am your AI career assistant. How can I help you today? (e.g., Interview tips, resume review, skill advice)" if language == "English" else "வணக்கம்! நான் உங்கள் AI தொழில் வழிகாட்டி. இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்? (எ.கா. நேர்காணல் குறிப்புகள், ரெஸ்யூம் ஆலோசனை)"
@@ -377,32 +378,29 @@ with tab2:
         
         if mode == "🎯 Career Guidance":
             system_prompt = f"""
-        You are an expert career assistant.
+You are an expert career assistant.
 
-        Provide structured output with:
+Provide:
+- Career suggestions
+- Skill gap analysis
+- Roadmap
+- Advice
 
-        1. 🎯 Career Suggestions  
-        2. 📊 Skill Gap Analysis  
-        3. 🧭 Career Roadmap  
-        4. 💡 Advice  
-        5. ⚠️ Mistakes to avoid  
-
-        CRITICAL: Respond in {lang_instruction}
-        """
+CRITICAL: Respond in {lang_instruction}
+"""
         else:
             system_prompt = f"""
-        You are an AI assistant that explains the election process in India.
+You are an AI assistant that explains the election process in India.
 
-        Provide structured output:
+Provide:
+1. Eligibility
+2. Documents
+3. Voting steps
+4. Mistakes
+5. Tips
 
-        1. 🧾 Eligibility Criteria  
-        2. 🪪 Required Documents  
-        3. 🗳️ Step-by-Step Voting Process  
-        4. ⚠️ Common Mistakes  
-        5. 💡 Tips for first-time voters  
-
-        CRITICAL: Respond in {lang_instruction}
-        """
+CRITICAL: Respond in {lang_instruction}
+"""
         
         # 3. Stream or Generate Response
         with st.chat_message("assistant"):
