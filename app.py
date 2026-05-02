@@ -261,7 +261,7 @@ st.success(f"Current Mode: {mode}")
 
 # Define Main Tabs
 if mode == "🗳️ Election Education":
-    tab2, tab1 = st.tabs(["💬 Chat", "🗺️ Career Planner (Disabled)"])
+    tab2, tab1, tab3, tab4, tab5, tab6 = st.tabs(["💬 Chat", "🗺️ Career (Disabled)", "🧭 Discovery (Disabled)", "⚖️ Gap (Disabled)", "🛣️ Roadmap (Disabled)", "📄 PDF (Disabled)"])
 else:
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🗺️ Career Planner", "💬 Chat", "🧭 Path Discovery", "⚖️ Skill Gap", "🛣️ Roadmap", "📄 PDF Report"])
 
@@ -440,114 +440,126 @@ Respond in {lang_instruction}
 # TAB 3: CAREER PATH DISCOVERY
 # -----------------------------------------------
 with tab3:
-    st.markdown("<div class='section-header'>Discover Suitable Career Paths</div>", unsafe_allow_html=True)
-    st.markdown("Not sure what to do? Tell us about yourself and we'll suggest some career paths!" if language == "English" else "என்ன செய்வது என்று உறுதியாக தெரியவில்லையா? உங்களைப் பற்றி கூறினால், நாங்கள் சில தொழில் வழிகளைப் பரிந்துரைக்கிறோம்!")
-    
-    user_input = st.text_area(
-        "Describe your interests, skills, and goals:" if language == "English" else "உங்கள் ஆர்வங்கள், திறன்கள் மற்றும் இலக்குகளை விவரிக்கவும்:", 
-        placeholder="e.g., I like coding, I am weak in math, I want a good salary"
-    )
-    
-    button_label_path = "Generate Career Paths" if language == "English" else "தொழில் வழிகளை உருவாக்கு"
-    
-    if st.button(button_label_path, use_container_width=True):
-        if not user_input:
-            st.warning("Please provide some details about yourself." if language == "English" else "தயவுசெய்து உங்களைப் பற்றிய சில விவரங்களை வழங்கவும்.")
-        else:
-            with st.spinner("Finding the best career paths for you... / உங்களுக்கான சிறந்த தொழில் வழிகள் கண்டுபிடிக்கப்படுகிறது..."):
-                # Call the dedicated function we created for this
-                path_result = generate_career_paths(user_input, language)
-                
-                st.success("Career Paths Generated!" if language == "English" else "தொழில் வழிகள் உருவாக்கப்பட்டன!")
-                st.markdown("### 💡 Recommended Career Paths" if language == "English" else "### 💡 பரிந்துரைக்கப்பட்ட தொழில் வழிகள்")
-                st.markdown(path_result)
+    if mode == "🗳️ Election Education":
+        st.info("🗳️ Election Mode Active – Please use the Chat tab for election queries.")
+    else:
+        st.markdown("<div class='section-header'>Discover Suitable Career Paths</div>", unsafe_allow_html=True)
+        st.markdown("Not sure what to do? Tell us about yourself and we'll suggest some career paths!" if language == "English" else "என்ன செய்வது என்று உறுதியாக தெரியவில்லையா? உங்களைப் பற்றி கூறினால், நாங்கள் சில தொழில் வழிகளைப் பரிந்துரைக்கிறோம்!")
+        
+        user_input = st.text_area(
+            "Describe your interests, skills, and goals:" if language == "English" else "உங்கள் ஆர்வங்கள், திறன்கள் மற்றும் இலக்குகளை விவரிக்கவும்:", 
+            placeholder="e.g., I like coding, I am weak in math, I want a good salary"
+        )
+        
+        button_label_path = "Generate Career Paths" if language == "English" else "தொழில் வழிகளை உருவாக்கு"
+        
+        if st.button(button_label_path, use_container_width=True):
+            if not user_input:
+                st.warning("Please provide some details about yourself." if language == "English" else "தயவுசெய்து உங்களைப் பற்றிய சில விவரங்களை வழங்கவும்.")
+            else:
+                with st.spinner("Finding the best career paths for you... / உங்களுக்கான சிறந்த தொழில் வழிகள் கண்டுபிடிக்கப்படுகிறது..."):
+                    # Call the dedicated function we created for this
+                    path_result = generate_career_paths(user_input, language)
+                    
+                    st.success("Career Paths Generated!" if language == "English" else "தொழில் வழிகள் உருவாக்கப்பட்டன!")
+                    st.markdown("### 💡 Recommended Career Paths" if language == "English" else "### 💡 பரிந்துரைக்கப்பட்ட தொழில் வழிகள்")
+                    st.markdown(path_result)
 
 # -----------------------------------------------
 # TAB 4: SKILL GAP ANALYZER
 # -----------------------------------------------
 with tab4:
-    st.markdown("<div class='section-header'>Skill Gap Analyzer</div>", unsafe_allow_html=True)
-    st.markdown("Compare your current skills with the requirements of your dream job." if language == "English" else "உங்கள் தற்போதைய திறன்களை உங்கள் கனவு வேலையின் தேவைகளுடன் ஒப்பிடுக.")
-    
-    col_a, col_b = st.columns(2)
-    with col_a:
-        user_skills_input = st.text_area(
-            "Your Current Skills / தற்போதைய திறன்கள்",
-            placeholder="e.g., Python, SQL, Basic Math"
-        )
-    with col_b:
-        target_career_input = st.text_input(
-            "Target Career / இலக்கு தொழில்",
-            placeholder="e.g., Data Scientist"
-        )
+    if mode == "🗳️ Election Education":
+        st.info("🗳️ Election Mode Active – Please use the Chat tab for election queries.")
+    else:
+        st.markdown("<div class='section-header'>Skill Gap Analyzer</div>", unsafe_allow_html=True)
+        st.markdown("Compare your current skills with the requirements of your dream job." if language == "English" else "உங்கள் தற்போதைய திறன்களை உங்கள் கனவு வேலையின் தேவைகளுடன் ஒப்பிடுக.")
         
-    button_label_compare = "Compare Skills" if language == "English" else "திறன்களை ஒப்பிடுக"
-    
-    if st.button(button_label_compare, use_container_width=True, key="btn_compare"):
-        if not user_skills_input or not target_career_input:
-            st.warning("Please enter your current skills and target career." if language == "English" else "தயவுசெய்து உங்கள் தற்போதைய திறன்கள் மற்றும் இலக்கு தொழிலை உள்ளிடவும்.")
-        else:
-            with st.spinner("Analyzing skills match... / திறன் பொருத்தம் பகுப்பாய்வு செய்யப்படுகிறது..."):
-                comparison_result = compare_skills_for_career(user_skills_input, target_career_input, language)
-                
-                st.success("Comparison Complete!" if language == "English" else "ஒப்பீடு முடிந்தது!")
-                st.markdown("### 📊 Skill Analysis Matrix" if language == "English" else "### 📊 திறன் பகுப்பாய்வு")
-                st.markdown(comparison_result)
+        col_a, col_b = st.columns(2)
+        with col_a:
+            user_skills_input = st.text_area(
+                "Your Current Skills / தற்போதைய திறன்கள்",
+                placeholder="e.g., Python, SQL, Basic Math"
+            )
+        with col_b:
+            target_career_input = st.text_input(
+                "Target Career / இலக்கு தொழில்",
+                placeholder="e.g., Data Scientist"
+            )
+            
+        button_label_compare = "Compare Skills" if language == "English" else "திறன்களை ஒப்பிடுக"
+        
+        if st.button(button_label_compare, use_container_width=True, key="btn_compare"):
+            if not user_skills_input or not target_career_input:
+                st.warning("Please enter your current skills and target career." if language == "English" else "தயவுசெய்து உங்கள் தற்போதைய திறன்கள் மற்றும் இலக்கு தொழிலை உள்ளிடவும்.")
+            else:
+                with st.spinner("Analyzing skills match... / திறன் பொருத்தம் பகுப்பாய்வு செய்யப்படுகிறது..."):
+                    comparison_result = compare_skills_for_career(user_skills_input, target_career_input, language)
+                    
+                    st.success("Comparison Complete!" if language == "English" else "ஒப்பீடு முடிந்தது!")
+                    st.markdown("### 📊 Skill Analysis Matrix" if language == "English" else "### 📊 திறன் பகுப்பாய்வு")
+                    st.markdown(comparison_result)
 
 # -----------------------------------------------
 # TAB 5: ROADMAP GENERATOR
 # -----------------------------------------------
 with tab5:
-    st.markdown("<div class='section-header'>Step-by-Step Roadmap Generator</div>", unsafe_allow_html=True)
-    st.markdown("Get a simple, actionable timeline and learning roadmap for any target career." if language == "English" else "எந்தவொரு இலக்கு தொழிலுக்கும் எளிய, செயல்படுத்தக்கூடிய காலவரிசை மற்றும் கற்றல் வழிகாட்டியைப் பெறுங்கள்.")
-    
-    roadmap_career_input = st.text_input(
-        "Enter Target Career / இலக்கு தொழிலை உள்ளிடுக",
-        placeholder="e.g., Full Stack Developer, Product Manager",
-        key="roadmap_input"
-    )
-    
-    button_label_roadmap = "Generate Roadmap" if language == "English" else "வழிகாட்டியை உருவாக்கு"
-    
-    if st.button(button_label_roadmap, use_container_width=True, key="btn_roadmap"):
-        if not roadmap_career_input:
-            st.warning("Please enter a target career." if language == "English" else "தயவுசெய்து ஒரு இலக்கு தொழிலை உள்ளிடவும்.")
-        else:
-            with st.spinner("Generating actionable roadmap... / வழிகாட்டி உருவாக்கப்படுகிறது..."):
-                roadmap_result = generate_career_roadmap(roadmap_career_input, language)
-                
-                st.toast("Roadmap Generated successfully!", icon="🗺️")
-                st.markdown("### 🛣️ Your Career Roadmap" if language == "English" else "### 🛣️ உங்கள் தொழில் வழிகாட்டி")
-                with st.container(border=True):
-                    st.markdown(roadmap_result)
+    if mode == "🗳️ Election Education":
+        st.info("🗳️ Election Mode Active – Please use the Chat tab for election queries.")
+    else:
+        st.markdown("<div class='section-header'>Step-by-Step Roadmap Generator</div>", unsafe_allow_html=True)
+        st.markdown("Get a simple, actionable timeline and learning roadmap for any target career." if language == "English" else "எந்தவொரு இலக்கு தொழிலுக்கும் எளிய, செயல்படுத்தக்கூடிய காலவரிசை மற்றும் கற்றல் வழிகாட்டியைப் பெறுங்கள்.")
+        
+        roadmap_career_input = st.text_input(
+            "Enter Target Career / இலக்கு தொழிலை உள்ளிடுக",
+            placeholder="e.g., Full Stack Developer, Product Manager",
+            key="roadmap_input"
+        )
+        
+        button_label_roadmap = "Generate Roadmap" if language == "English" else "வழிகாட்டியை உருவாக்கு"
+        
+        if st.button(button_label_roadmap, use_container_width=True, key="btn_roadmap"):
+            if not roadmap_career_input:
+                st.warning("Please enter a target career." if language == "English" else "தயவுசெய்து ஒரு இலக்கு தொழிலை உள்ளிடவும்.")
+            else:
+                with st.spinner("Generating actionable roadmap... / வழிகாட்டி உருவாக்கப்படுகிறது..."):
+                    roadmap_result = generate_career_roadmap(roadmap_career_input, language)
+                    
+                    st.toast("Roadmap Generated successfully!", icon="🗺️")
+                    st.markdown("### 🛣️ Your Career Roadmap" if language == "English" else "### 🛣️ உங்கள் தொழில் வழிகாட்டி")
+                    with st.container(border=True):
+                        st.markdown(roadmap_result)
 
 # -----------------------------------------------
 # TAB 6: PDF REPORT GENERATOR
 # -----------------------------------------------
 with tab6:
-    st.markdown("<div class='section-header'>Download Comprehensive PDF Report</div>", unsafe_allow_html=True)
-    st.markdown("Get a perfectly compiled PDF containing tailored Career Suggestions, Skill Gap Analysis, and a step-by-step Roadmap." if language == "English" else "உங்கள் திறன்கள் மற்றும் இலக்குகளின் அடிப்படையில் ஒரு முழுமையான PDF அறிக்கையைப் பெறுங்கள்.")
-    
-    col_x, col_y = st.columns(2)
-    with col_x:
-        pdf_skills = st.text_area("Your Core Skills", placeholder="e.g., Python, SQL, Communication", key="pdf_skills")
-    with col_y:
-        pdf_goals = st.text_input("Your Target Career/Goal", placeholder="e.g., Senior Data Analyst", key="pdf_goals")
-    
-    if st.button("Generate & Prepare PDF", use_container_width=True, key="btn_pdf"):
-        if not pdf_skills or not pdf_goals:
-            st.warning("Please provide at least your skills and goals!" if language == "English" else "தயவுசெய்து உங்கள் திறன்கள் மற்றும் இலக்குகளை வழங்கவும்!")
-        else:
-            with st.spinner("Compiling global insights and building your PDF... / உங்கள் PDF அறிக்கை தயாரிக்கப்படுகிறது..."):
-                pdf_bytes_array = generate_pdf_report_bytes(pdf_skills, pdf_goals)
-                st.toast("PDF successfully compiled! Ready for download.", icon="📑")
-                st.snow() # Hackathon visual flair
-                
-                # Streamlit Native Download Button
-                st.download_button(
-                    label="⬇️ Download PDF Report" if language == "English" else "⬇️ PDF அறிக்கையைப் பதிவிறக்கவும்",
-                    data=bytes(pdf_bytes_array),
-                    file_name="Career_Report.pdf",
-                    mime="application/pdf",
-                    use_container_width=True
-                )
+    if mode == "🗳️ Election Education":
+        st.info("🗳️ Election Mode Active – Please use the Chat tab for election queries.")
+    else:
+        st.markdown("<div class='section-header'>Download Comprehensive PDF Report</div>", unsafe_allow_html=True)
+        st.markdown("Get a perfectly compiled PDF containing tailored Career Suggestions, Skill Gap Analysis, and a step-by-step Roadmap." if language == "English" else "உங்கள் திறன்கள் மற்றும் இலக்குகளின் அடிப்படையில் ஒரு முழுமையான PDF அறிக்கையைப் பெறுங்கள்.")
+        
+        col_x, col_y = st.columns(2)
+        with col_x:
+            pdf_skills = st.text_area("Your Core Skills", placeholder="e.g., Python, SQL, Communication", key="pdf_skills")
+        with col_y:
+            pdf_goals = st.text_input("Your Target Career/Goal", placeholder="e.g., Senior Data Analyst", key="pdf_goals")
+        
+        if st.button("Generate & Prepare PDF", use_container_width=True, key="btn_pdf"):
+            if not pdf_skills or not pdf_goals:
+                st.warning("Please provide at least your skills and goals!" if language == "English" else "தயவுசெய்து உங்கள் திறன்கள் மற்றும் இலக்குகளை வழங்கவும்!")
+            else:
+                with st.spinner("Compiling global insights and building your PDF... / உங்கள் PDF அறிக்கை தயாரிக்கப்படுகிறது..."):
+                    pdf_bytes_array = generate_pdf_report_bytes(pdf_skills, pdf_goals)
+                    st.toast("PDF successfully compiled! Ready for download.", icon="📑")
+                    st.snow() # Hackathon visual flair
+                    
+                    # Streamlit Native Download Button
+                    st.download_button(
+                        label="⬇️ Download PDF Report" if language == "English" else "⬇️ PDF அறிக்கையைப் பதிவிறக்கவும்",
+                        data=bytes(pdf_bytes_array),
+                        file_name="Career_Report.pdf",
+                        mime="application/pdf",
+                        use_container_width=True
+                    )
